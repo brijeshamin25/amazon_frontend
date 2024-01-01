@@ -170,4 +170,58 @@ const products = [{
     count: 215,
   },
   pricecent: 2200,
+}, {
+  id:"id1",
+  image:'images/products/umbrella.jpg',
+  name:"Large Green Umbrella",
+  review: {
+    star: 5,
+    count: 456,
+  },
+  pricecent:2999,
+},{
+  id:"id2",
+  image:'images/products/backpack.jpg',
+  name:'Black Backpack',
+  review:{
+    star:4.5,
+    count:123,
+  },
+  pricecent:2500,
+},{
+  id:"id3",
+  image: 'images/products/men-cozy-fleece-zip-up-hoodie-red.jpg',
+  name:"Men's Full-Zip Hooded Fleece Sweatshirt",
+  review:{
+    star:4.5,
+    count:3157,
+  },
+  pricecent:2400,
+},{
+  id:"id4",
+  image:'images/products/kitchen-paper-towels-30-pack.jpg',
+  name:'2-Ply Kitchen Paper Towels - 30 Pack',
+  review:{
+    star:4.5,
+    count:1045,
+  },
+  pricecent:5799,
+},{
+  id:"id5",
+  image:'images/products/floral-mixing-bowl-set.jpg',
+  name:'10-Piece Mixing Bowl Set with Lids - Floral',
+  review:{
+    star:5,
+    count:679,
+  },
+  pricecent:3899
+},{
+  id:"id6",
+  image:'images/products/countertop-blender-64-oz.jpg',
+  name:'Countertop Blender - 64oz, 1400 Watts',
+  review:{
+    star:4,
+    count:3,
+  },
+  pricecent:10747,
 }];
