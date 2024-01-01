@@ -1,0 +1,153 @@
+.order_main {
+  margin-top: 90px;
+  margin-bottom: 100px;
+  max-width: 850px;
+  padding: 0px 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.order_title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.order_grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 50px;
+}
+
+.order_header {
+  background-color: rgb(240, 242, 242);
+  border: 1px solid rgb(213, 217, 217);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 25px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.order_left_section {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.order_date,
+.order_total {
+  margin-right: 45px;
+}
+
+.order_header_label {
+  font-weight: 500;
+}
+
+.order_right_section {
+  flex-shrink: 1;
+}
+
+/* Order Detail CSS */
+
+.order_details_grid {
+  border: 1px solid rgb(213, 217, 217);
+  padding: 40px 25px;
+  border-top: none;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+
+  display: grid;
+  grid-template-columns: 110px 1fr 220px;
+  column-gap: 35px;
+  row-gap: 60px;
+}
+
+.product_img_container {
+  text-align: center;
+}
+
+.product_img_container img {
+  max-width: 110px;
+  max-height: 110px;
+}
+
+.product_name {
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.product_delivery_date {
+  margin-bottom: 3px;
+}
+
+.product_qty {
+  margin-bottom: 8px;
+}
+
+.button_primary {
+  background-color: rgb(255, 216, 20);
+  border: 1px solid rgb(252, 210, 0);
+  color: rgb(33, 33, 33);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+  cursor: pointer;
+}
+
+.button_primary:hover {
+  background-color: rgb(247, 202, 0);
+  border: 1px solid rgb(242, 194, 0);
+}
+
+.button_primary:active {
+  background-color: rgb(255, 216, 20);
+  border-color: rgb(252, 210, 0);
+  box-shadow: none;
+}
+
+.buy_again_btn {
+  font-size: 15px;
+  width: 140px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buy_again_icon {
+  width: 25px;
+  margin-right: 15px;
+}
+
+.product_actions {
+  align-self: start;
+  margin-top: 10px;
+}
+
+/* .product_actions a {
+  text-decoration: none;
+} */
+
+.tracking_package_btn {
+  width: 100%;
+  padding: 12px;
+}
+
+.button_secondary {
+  color: rgb(33, 33, 33);
+  background-color: #fff;
+  border: 1px solid rgb(213, 217, 217);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+  cursor: pointer;
+}
+
+.button_secondary:hover {
+  background-color: rgb(247, 250, 250);
+}
+
+.button_secondary:active {
+  background-color: rgb(237, 253, 255);
+  box-shadow: none;
+}

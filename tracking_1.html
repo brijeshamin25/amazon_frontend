@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Font Link   -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS Files Link-->
+    <link rel="stylesheet" href="StyleSheet/amazon_header.css" />
+    <link rel="stylesheet" href="StyleSheet/amazon.css" />
+    <link rel="stylesheet" href="StyleSheet/tracking_1.css" />
+
+    <title>Track My Order</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="left_side">
+        <a href="amazon.html" class="amz_logo_link">
+          <img
+            class="amz_logo header_link"
+            src="images/amazon-logo-white.png"
+            alt="Amazon Logo"
+          />
+        </a>
+      </div>
+
+      <div class="mid_side">
+        <input class="search_bar" type="text" placeholder="Search" />
+
+        <button class="search_btn">
+          <img
+            class="search_icon"
+            src="images/icons/search-icon.png"
+            alt="Search Icon"
+          />
+        </button>
+      </div>
+
+      <div class="right_side">
+        <a href="order.html" class="order_link header_link">
+          <span class="return_txt">Returns</span>
+          <span class="order_txt">& Orders</span>
+        </a>
+
+        <a href="checkout.html" class="cart_link header_link">
+          <img
+            class="cart_icon"
+            src="images/icons/cart-icon.png"
+            alt="Cart Logo"
+          />
+          <div class="order_count">3</div>
+          <div class="cart_txt">Cart</div>
+        </a>
+      </div>
+    </header>
+
+    <main class="track_main">
+      <div class="order_tracking">
+        <a class="back_to_order_link link_primary" href="order.html"
+          >View all orders</a
+        >
+
+        <div class="delivery_date">Arriving on Wednesday, January 3</div>
+
+        <div class="product_info">
+          Black and Gray Athletic Cotton Socks - 6 Pairs
+        </div>
+
+        <div class="product_info">Quantity: 1</div>
+
+        <img
+          class="order_img"
+          src="images/products/athletic-cotton-socks-6-pairs.jpg"
+          alt="Socks"
+        />
+
+        <div class="progress_label_div">
+          <div class="progress_label">Preparing</div>
+          <div class="progress_label current_status">Shipped</div>
+          <div class="progress_label">Delivered</div>
+        </div>
+
+        <div class="progress_bar_div">
+          <div class="progress_bar"></div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

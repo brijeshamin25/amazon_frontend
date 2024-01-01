@@ -1,0 +1,217 @@
+.checkout_main {
+  margin-top: 140px;
+  margin-bottom: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px 30px;
+  max-width: 1100px;
+}
+
+.checkout_page_title {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.checkout_grid {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  column-gap: 12px;
+  align-items: start;
+}
+
+.cart_item_div,
+.payment_summary_div {
+  border: 1px solid rgb(222, 222, 222);
+  border-radius: 4px;
+  padding: 18px;
+}
+
+.cart_item_div {
+  margin-bottom: 12px;
+}
+
+.payment_summary_div {
+  margin-bottom: 5px;
+}
+
+@media (max-width: 1000px) {
+  .main {
+    max-width: 500px;
+  }
+
+  .checkout_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cart_item_div,
+  .payment_summary_div {
+    width: 32rem;
+    height: 22rem auto;
+  }
+
+  .payment_summary_div {
+    grid-row: 1;
+    margin-bottom: 12px;
+  }
+}
+
+.delivery_date {
+  color: rgb(0, 128, 0);
+  font-size: 19px;
+  font-weight: 700;
+  margin-top: 5px;
+  margin-bottom: 22px;
+}
+
+.cart_item_grid {
+  display: grid;
+  grid-template-columns: 100px 1fr 1fr;
+  column-gap: 25px;
+}
+
+@media (max-width: 1000px) {
+  .cart_item_grid {
+    grid-template-columns: 100px 1fr;
+    row-gap: 30px;
+  }
+}
+
+.product_img {
+  max-height: 120px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product_name {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.product_price {
+  color: rgb(177, 39, 4);
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.order_qty,
+.link-primary {
+  margin-left: 3px;
+}
+
+.link-primary {
+  color: rgb(1, 124, 182);
+}
+
+.modify_qty:hover {
+  color: rgb(177, 39, 4);
+  cursor: pointer;
+}
+
+.delivery_title {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.delivery_option {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  margin-bottom: 12px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.delivery_option_radio {
+  margin-left: 0px;
+  cursor: pointer;
+}
+
+.shipment_date_price {
+  margin-left: 10px;
+}
+
+.delivery_option_date {
+  color: rgb(0, 118, 0);
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+.delivery_option_price {
+  color: rgb(120, 120, 120);
+  font-size: 15px;
+}
+
+input,
+select,
+button {
+  font-family: Roboto, Arial;
+}
+
+/* Payment Summary CSS */
+.Payment_summary_title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.payment_summary_row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  font-size: 15px;
+  margin-bottom: 9px;
+}
+
+.payment_item_amount {
+  text-align: right;
+}
+
+.subtotal_row .payment_item_amount {
+  border-top: 1px solid rgb(222, 222, 222);
+}
+
+.subtotal_row div {
+  padding-top: 9px;
+}
+
+.total_row {
+  border-top: 1px solid rgb(222, 222, 222);
+  padding-top: 18px;
+  color: rgb(177, 39, 4);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.place_order_btn {
+  width: 100%;
+  padding: 12px 0px;
+  border-radius: 8px;
+  margin-top: 11px;
+  margin-bottom: 15px;
+}
+
+.button_primary {
+  color: rgb(33, 33, 33);
+  background-color: rgb(255, 216, 20);
+  border: 1px solid rgb(252, 210, 0);
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+}
+
+.button_primary:hover {
+  background-color: rgb(247, 202, 0);
+  border: 1px solid rgb(242, 194, 0);
+}
+
+.button_primary:active {
+  background: rgb(255, 216, 20);
+  border-color: rgb(252, 210, 0);
+  box-shadow: none;
+}
+
+@media (max-width: 1000px) {
+  .delivery_option_div {
+    width: 400px;
+  }
+}

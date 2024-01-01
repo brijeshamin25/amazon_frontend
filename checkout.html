@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Font Link   -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="StyleSheet/checkout_header.css" />
+
+    <link rel="stylesheet" href="StyleSheet/checkout.css" />
+
+    <title>Checkout My Order</title>
+  </head>
+  <body>
+    <header class="checkout_header">
+      <div class="header_div">
+        <div class="checkout_header_left">
+          <a href="amazon.html">
+            <img class="amazon_logo" src="images/amazon-logo.png" alt="logo" />
+          </a>
+        </div>
+
+        <div class="checkout_header_middle">
+          Checkout (<a class="return_to_home" href="amazon.html">3 Items</a>)
+        </div>
+
+        <div class="checkout_header_right">
+          <img src="images/icons/checkout-lock-icon.png" alt="lock_icon" />
+        </div>
+      </div>
+    </header>
+
+    <main class="checkout_main">
+      <div class="checkout_page_title">Review your order</div>
+
+      <div class="checkout_grid">
+        <div class="order_summary">
+          <div class="cart_item_div">
+            <div class="delivery_date">Delivery Date: Tuesday, June 21</div>
+
+            <div class="cart_item_grid">
+              <img
+                class="product_img"
+                src="images/products/athletic-cotton-socks-6-pairs.jpg"
+                alt="Socks"
+              />
+
+              <div class="cart_item_details">
+                <div class="product_name">
+                  Balck and Gray Atheletic Cottom Socks - 6 Pairs
+                </div>
+
+                <div class="product_price">$10.90</div>
+
+                <div>
+                  <span> Quantity: <span class="order_qty">1</span> </span>
+
+                  <span class="modify_qty link-primary">Update</span>
+                  <span class="modify_qty link-primary">Delete</span>
+                </div>
+              </div>
+
+              <div class="delivery_option_div">
+                <div class="delivery_title">Choose a delivery option:</div>
+
+                <div class="delivery_option">
+                  <input
+                    checked
+                    class="delivery_option_radio"
+                    type="radio"
+                    name="devivery_option_1"
+                  />
+                  <div class="shipment_date_price">
+                    <div class="delivery_option_date">Tuesday, June 21</div>
+                    <div class="delivery_option_price">Free Shipping</div>
+                  </div>
+                </div>
+
+                <div class="delivery_option">
+                  <input
+                    class="delivery_option_radio"
+                    type="radio"
+                    name="devivery_option_1"
+                  />
+                  <div class="shipment_date_price">
+                    <div class="delivery_option_date">Wednesday, January 3</div>
+                    <div class="delivery_option_price">$4.99 - Shipping</div>
+                  </div>
+                </div>
+
+                <div class="delivery_option">
+                  <input
+                    class="delivery_option_radio"
+                    type="radio"
+                    name="devivery_option_1"
+                  />
+                  <div class="shipment_date_price">
+                    <div class="delivery_option_date">Monday, January 1</div>
+                    <div class="delivery_option_price">$9.99 - Shipping</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Second Order Checkout -->
+          <div class="cart_item_div">
+            <div class="delivery_date">
+              Delivery Date: Wednesday, January 12
+            </div>
+
+            <div class="cart_item_grid">
+              <img
+                class="product_img"
+                src="images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg"
+                alt="T-Shirt"
+              />
+
+              <div class="cart_item_details">
+                <div class="product_name">Intermediate SIze Basketball</div>
+
+                <div class="product_price">$20.95</div>
+
+                <div>
+                  <span> Quantity: <span class="order_qty">2</span> </span>
+
+                  <span class="modify_qty link-primary">Update</span>
+                  <span class="modify_qty link-primary">Delete</span>
+                </div>
+              </div>
+
+              <div class="delivery_option_div">
+                <div class="delivery_title">Choose a delivery option:</div>
+
+                <div class="delivery_option">
+                  <input
+                    class="delivery_option_radio"
+                    type="radio"
+                    name="devivery_option_2"
+                  />
+                  <div class="shipment_date_price">
+                    <div class="delivery_option_date">Tuesday, January 18</div>
+                    <div class="delivery_option_price">Free Shipping</div>
+                  </div>
+                </div>
+
+                <div class="delivery_option">
+                  <input
+                    class="delivery_option_radio"
+                    type="radio"
+                    checked
+                    name="devivery_option_2"
+                  />
+                  <div class="shipment_date_price">
+                    <div class="delivery_option_date">
+                      Wednesday, January 15
+                    </div>
+                    <div class="delivery_option_price">$4.99 - Shipping</div>
+                  </div>
+                </div>
+
+                <div class="delivery_option">
+                  <input
+                    class="delivery_option_radio"
+                    type="radio"
+                    name="devivery_option_2"
+                  />
+                  <div class="shipment_date_price">
+                    <div class="delivery_option_date">Monday, January 13</div>
+                    <div class="delivery_option_price">$9.99 - Shipping</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Summary -->
+        <div class="payment_summary_div">
+          <div class="Payment_summary_title">Order Summary</div>
+
+          <div class="payment_summary_row">
+            <div>Item (3):</div>
+            <div class="payment_item_amount">$42.75</div>
+          </div>
+
+          <div class="payment_summary_row">
+            <div>Shipping &amp; handling:</div>
+            <div class="payment_item_amount">$4.99</div>
+          </div>
+
+          <div class="payment_summary_row subtotal_row">
+            <div>Total before tax:</div>
+            <div class="payment_item_amount">$47.74</div>
+          </div>
+
+          <div class="payment_summary_row">
+            <div>Estimated tax (10%):</div>
+            <div class="payment_item_amount">$4.77</div>
+          </div>
+
+          <div class="payment_summary_row total_row">
+            <div>Order total:</div>
+            <div class="payment_item_amount">$52.51</div>
+          </div>
+
+          <button class="place_order_btn button_primary">
+            Place your order
+          </button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

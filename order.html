@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Font Link   -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS Files Link-->
+    <link rel="stylesheet" href="StyleSheet/amazon_header.css" />
+    <link rel="stylesheet" href="StyleSheet/amazon.css" />
+    <link rel="stylesheet" href="StyleSheet/order.css" />
+
+    <title>My Order</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="left_side">
+        <a href="amazon.html" class="amz_logo_link">
+          <img
+            class="amz_logo header_link"
+            src="images/amazon-logo-white.png"
+            alt="Amazon Logo"
+          />
+        </a>
+      </div>
+
+      <div class="mid_side">
+        <input class="search_bar" type="text" placeholder="Search" />
+
+        <button class="search_btn">
+          <img
+            class="search_icon"
+            src="images/icons/search-icon.png"
+            alt="Search Icon"
+          />
+        </button>
+      </div>
+
+      <div class="right_side">
+        <a href="#" class="order_link header_link">
+          <span class="return_txt">Returns</span>
+          <span class="order_txt">& Orders</span>
+        </a>
+
+        <a href="checkout.html" class="cart_link header_link">
+          <img
+            class="cart_icon"
+            src="images/icons/cart-icon.png"
+            alt="Cart Logo"
+          />
+          <div class="order_count">3</div>
+          <div class="cart_txt">Cart</div>
+        </a>
+      </div>
+    </header>
+
+    <main class="order_main">
+      <div class="order_title">Your Orders</div>
+
+      <div class="order_grid">
+        <div class="order_container">
+          <div class="order_header">
+            <div class="order_left_section">
+              <div class="order_date">
+                <div class="order_header_label">Order Placed:</div>
+                <div class="order_place_date">January 6</div>
+              </div>
+
+              <div class="order_total">
+                <div class="order_header_label">Total:</div>
+                <div class="order_place_total">$35.06</div>
+              </div>
+            </div>
+
+            <div class="order_right_section">
+              <div class="order_header_label">Order ID:</div>
+              <div class="order_id_num">
+                27cba69d-4c3d-4098-b42d-ac7fa62b7664
+              </div>
+            </div>
+          </div>
+
+          <div class="order_details_grid">
+            <div class="product_img_container">
+              <img
+                src="images/products/athletic-cotton-socks-6-pairs.jpg"
+                alt="Socks"
+              />
+            </div>
+
+            <div class="product_details">
+              <div class="product_name">
+                Black and Gray Athletic Cotton Socks - 6 Pairs
+              </div>
+              <div class="product_delivery_date">Arriving on: January 9</div>
+              <div class="product_qty">Quantity: 1</div>
+              <button class="buy_again_btn button_primary">
+                <img
+                  class="buy_again_icon"
+                  src="images/icons/buy-again.png"
+                  alt="Buy again icon"
+                />
+                <span class="buy_again_txt">But it again</span>
+              </button>
+            </div>
+
+            <div class="product_actions">
+              <a href="tracking_1.html">
+                <button class="tracking_package_btn button_secondary">
+                  Track package
+                </button>
+              </a>
+            </div>
+
+            <!-- Second Order -->
+
+            <div class="product_img_container">
+              <img
+                src="images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg"
+                alt="T-Shirt"
+              />
+            </div>
+
+            <div class="product_details">
+              <div class="product_name">
+                Adults Plain Cotton T-SHirt - 2 Pack
+              </div>
+              <div class="product_delivery_date">Arriving on: January 12</div>
+              <div class="product_qty">Quantity: 2</div>
+              <button class="buy_again_btn button_primary">
+                <img
+                  class="buy_again_icon"
+                  src="images/icons/buy-again.png"
+                  alt="Buy again icon"
+                />
+                <span class="buy_again_txt">But it again</span>
+              </button>
+            </div>
+
+            <div class="product_actions">
+              <a href="tracking_2.html">
+                <button class="tracking_package_btn button_secondary">
+                  Track package
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
