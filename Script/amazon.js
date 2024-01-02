@@ -1,4 +1,4 @@
-import {cart} from '../Script/cart.js';
+import {cart, addToCart} from '../Script/cart.js';
 import { products } from './Products_data.js';
 
 let productsHTML = '';
@@ -57,46 +57,24 @@ products.forEach((product) => {
 
 document.querySelector(".js_products_grid").innerHTML = productsHTML;
 
+function updateCartQty(){
+  let cartQty = 0;
+
+  cart.forEach((cartItem) => {
+    cartQty += cartItem.quantity;
+  });
+
+  document.querySelector(".js-cart_qty").innerHTML = cartQty;
+}
+
 const addedMsgTimeout = {};
 
-document.querySelectorAll(".js_add_to_cart").forEach((button) => {
-  button.addEventListener('click', () => {
-    const {productId} = button.dataset; //use destructuring shortcut (ProductId)
+function visibleAddedToCart(productId){
+  //Added class to vidible product to add to the cart
+  const addedMsg= document.querySelector(`.js-added-to-cart-${productId}`);
+  addedMsg.classList.add('added_to_cart_visible');
 
-    let matchingItem;
-
-    cart.forEach((item) => {
-      if(productId === item.productId){
-        matchingItem = item;
-      }
-    });
-
-    const quantitySelector = document.querySelector(`.js-qty-selector-${productId}`);
-
-    const quantity = Number(quantitySelector.value);
-
-    if(matchingItem){
-      matchingItem.quantity += quantity;
-    }else{
-      cart.push({
-        productId, //use destructuring shortcut (ProductId: ProductId); 
-        quantity, //use destructuring shortcut (quantity: quantity);
-      });
-    }
-
-    let cartQty = 0;
-
-    cart.forEach((item) => {
-      cartQty += item.quantity;
-    });
-
-    document.querySelector(".js-cart_qty").innerHTML = cartQty;
-
-    //Added class to vidible product to add to the cart
-    const addedMsg= document.querySelector(`.js-added-to-cart-${productId}`);
-    addedMsg.classList.add('added_to_cart_visible');
-
-    const previousTimeoutId = addedMsgTimeout[productId];
+  const previousTimeoutId = addedMsgTimeout[productId];
 
     if(previousTimeoutId){
       clearTimeout(previousTimeoutId);
@@ -108,6 +86,17 @@ document.querySelectorAll(".js_add_to_cart").forEach((button) => {
     },2000);
 
     addedMsgTimeout[productId] = timeoutId;
+}
+
+document.querySelectorAll(".js_add_to_cart").forEach((button) => {
+  button.addEventListener('click', () => {
+    const {productId} = button.dataset; //use destructuring shortcut (ProductId)
+
+    addToCart(productId);
+
+    updateCartQty();
+
+    visibleAddedToCart(productId); 
   });
 });
 
