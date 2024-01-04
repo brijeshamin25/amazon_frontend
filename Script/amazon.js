@@ -1,5 +1,6 @@
 import {cart, addToCart} from '../Script/cart.js';
 import { products } from './Products_data.js';
+import { formatCurrency } from './Utils/money.js';
 
 let productsHTML = '';
 
@@ -27,7 +28,7 @@ products.forEach((product) => {
         <div class="product_rating_count">${product.review.count}</div>
       </div>
 
-      <div class="product_price"> $${(product.pricecent / 100) .toFixed(2) }</div>
+      <div class="product_price"> $${formatCurrency(product.pricecent)}</div>
 
       <div class="product_quantity">
         <select class="js-qty-selector-${product.id}">
@@ -55,6 +56,7 @@ products.forEach((product) => {
     </div>`;
 });
 
+//To display on the Web Page
 document.querySelector(".js_products_grid").innerHTML = productsHTML;
 
 function updateCartQty(){
