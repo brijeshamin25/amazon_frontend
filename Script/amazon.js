@@ -1,4 +1,4 @@
-import {cart, addToCart} from '../Script/cart.js';
+import {cart, addToCart, calculateCartQty} from '../Script/cart.js';
 import { products } from './Products_data.js';
 import { formatCurrency } from './Utils/money.js';
 
@@ -60,11 +60,13 @@ products.forEach((product) => {
 document.querySelector(".js_products_grid").innerHTML = productsHTML;
 
 function updateCartQty(){
-  let cartQty = 0;
+  // let cartQty = 0;
 
-  cart.forEach((cartItem) => {
-    cartQty += cartItem.quantity;
-  });
+  // cart.forEach((cartItem) => {
+  //   cartQty += cartItem.quantity;
+  // });
+
+  const cartQty = calculateCartQty();
 
   document.querySelector(".js-cart_qty").innerHTML = cartQty;
 }
@@ -89,6 +91,8 @@ function visibleAddedToCart(productId){
 
     addedMsgTimeout[productId] = timeoutId;
 }
+
+updateCartQty();
 
 document.querySelectorAll(".js_add_to_cart").forEach((button) => {
   button.addEventListener('click', () => {
