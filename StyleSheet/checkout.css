@@ -109,6 +109,31 @@
   cursor: pointer;
 }
 
+.quantity_input{
+  width:30px;
+  display: none;
+}
+
+.save_qty_link{
+  display: none;
+}
+
+.is_editing_qty .quantity_input{
+  display: initial;
+}
+
+.is_editing_qty .save_qty_link{
+  display: initial;
+}
+
+ .is_editing_qty .order_qty{
+  display: none;
+}
+
+.is_editing_qty .update_qty_link{
+  display: none;
+}
+
 .delivery_title {
   font-weight: 700;
   margin-bottom: 10px;

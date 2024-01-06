@@ -1,4 +1,4 @@
-import {cart,removeFromCart,calculateCartQty} from '../Script/cart.js';
+import {cart,removeFromCart,calculateCartQty,updateQuantity} from '../Script/cart.js';
 import { products } from '../Script/Products_data.js';
 import { formatCurrency } from './Utils/money.js';
 
@@ -34,9 +34,13 @@ cart.forEach((cartItem) => {
         <div class="product_price">$${formatCurrency(matchingProduct.pricecent)}</div>
 
         <div>
-          <span> Quantity: <span class="order_qty">${cartItem.quantity}</span> </span>
+          <span> Quantity: <span class="order_qty js-qty-label-${matchingProduct.id}">${cartItem.quantity}</span> </span>
 
-          <span class="modify_qty link-primary">Update</span>
+          <span class="modify_qty link-primary update_qty_link js_update_link" data-product-id="${matchingProduct.id}">Update</span>
+          
+          <input class="quantity_input js-qty-input-${matchingProduct.id}"/>
+          <span class="modify_qty save_qty_link link-primary js_save_link" data-product-id="${matchingProduct.id}">Save</span>
+
           <span class="modify_qty link-primary js_delete_link" data-product-id="${matchingProduct.id}">Delete</span>
         </div>
       </div>
@@ -110,7 +114,47 @@ function updateCartQuantity(){
 
   document.querySelector(".js_retrun_to_home").innerHTML= `${cartQty} items`;
 }
-
 updateCartQuantity();
+
+document.querySelectorAll(".js_update_link")
+  .forEach((link) => {
+    link.addEventListener('click', () => {
+      const productId = link.dataset.productId;
+
+      const saveQty = document.querySelector(`.js-cart-item-div-${productId}`);
+
+      saveQty.classList.add("is_editing_qty");
+    });
+  });
+
+document.querySelectorAll(".js_save_link")
+  .forEach((link) => {
+    link.addEventListener('click',() => {
+      const productId = link.dataset.productId;
+
+      const qtyInput = document.querySelector(`.js-qty-input-${productId}`);
+
+      const newQty = Number(qtyInput.value);
+
+      if(newQty < 0 || newQty >= 1000){
+        alert('Quantity must be at least 0 and less than 1000');
+        return;
+      }
+
+      updateQuantity(productId,newQty);
+
+      const saveQty = document.querySelector(`.js-cart-item-div-${productId}`);
+
+      saveQty.classList.remove('is_editing_qty');
+
+      const qtyLabel = document.querySelector(`.js-qty-label-${productId}`);
+
+      qtyLabel.innerHTML = newQty;
+
+      updateCartQuantity();
+    });
+  });
+
+
 
 
