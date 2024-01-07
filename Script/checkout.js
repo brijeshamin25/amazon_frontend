@@ -1,6 +1,8 @@
-import {cart,removeFromCart,calculateCartQty,updateQuantity} from '../Script/cart.js';
+import {cart,removeFromCart,calculateCartQty,updateQuantity} from '../Script/cart.js'; //Named Export {} With
 import { products } from '../Script/Products_data.js';
 import { formatCurrency } from './Utils/money.js';
+import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';//Default Export {} Without
+import {deliveryOptions} from './deliveryOptions.js';
 
 let cartSummaryHTML = '';
 
@@ -15,9 +17,23 @@ cart.forEach((cartItem) => {
     }
   });
 
+  const deliveryOptionId = cartItem.deliveryOptionsId;
+
+  let deliveryOption;
+
+  deliveryOptions.forEach((options) => {
+    if(options.id === deliveryOptionId){
+      deliveryOption = options;
+    }
+  }); 
+
+  const today = dayjs();
+  const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
+  const dateString = deliveryDate.format('dddd, MMMM D');
+
   cartSummaryHTML += `
   <div class="cart_item_div js-cart-item-div-${matchingProduct.id}">
-    <div class="delivery_date">Delivery Date: Tuesday, June 21</div>
+    <div class="delivery_date">Delivery Date: ${dateString}</div>
 
     <div class="cart_item_grid">
       <img
@@ -47,47 +63,39 @@ cart.forEach((cartItem) => {
 
       <div class="delivery_option_div">
         <div class="delivery_title">Choose a delivery option:</div>
-
-        <div class="delivery_option">
-          <input
-            checked
-            class="delivery_option_radio"
-            type="radio"
-            name="devivery_option_${matchingProduct.id}"
-          />
-          <div class="shipment_date_price">
-            <div class="delivery_option_date">Tuesday, June 21</div>
-            <div class="delivery_option_price">Free Shipping</div>
-          </div>
-        </div>
-
-        <div class="delivery_option">
-          <input
-            class="delivery_option_radio"
-            type="radio"
-            name="devivery_option_${matchingProduct.id}"
-          />
-          <div class="shipment_date_price">
-            <div class="delivery_option_date">Wednesday, January 3</div>
-            <div class="delivery_option_price">$4.99 - Shipping</div>
-          </div>
-        </div>
-
-        <div class="delivery_option">
-          <input
-            class="delivery_option_radio"
-            type="radio"
-            name="devivery_option_${matchingProduct.id}"
-          />
-          <div class="shipment_date_price">
-            <div class="delivery_option_date">Monday, January 1</div>
-            <div class="delivery_option_price">$9.99 - Shipping</div>
-          </div>
-        </div>
+        ${deliveryOptionsHTML(matchingProduct,cartItem)}
       </div>
     </div>
   </div>`;
 });
+
+function deliveryOptionsHTML(matchingProduct,cartItem){
+  let html = '';
+  deliveryOptions.forEach((deliveryOption) => {
+    const today = dayjs();
+    const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
+    const dateString = deliveryDate.format('dddd, MMMM D');
+
+    const priceString = deliveryOption.pricecents === 0? 'FREE': `$${formatCurrency(deliveryOption.pricecents)} -`;
+
+    const isChecked = deliveryOption.id === cartItem.deliveryOptionsId;
+
+    html += `<div class="delivery_option">
+      <input
+        class="delivery_option_radio"
+        type="radio"
+        ${isChecked? 'checked': ''}
+        name="devivery_option_${matchingProduct.id}"
+      />
+      <div class="shipment_date_price">
+        <div class="delivery_option_date">${dateString}</div>
+        <div class="delivery_option_price">${priceString} Shipping</div>
+      </div>
+    </div>`;
+  });
+
+  return html;
+}
 
 document.querySelector(".js_order_summary").innerHTML = cartSummaryHTML;
 
@@ -137,7 +145,7 @@ document.querySelectorAll(".js_save_link")
       const newQty = Number(qtyInput.value);
 
       if(newQty < 0 || newQty >= 1000){
-        alert('Quantity must be at least 0 and less than 1000');
+        alert('Quantity must be at least 0 and less than equal to 10');
         return;
       }
 
