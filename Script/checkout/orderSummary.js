@@ -1,8 +1,8 @@
 import {cart,removeFromCart,calculateCartQty,updateQuantity,updateDeliveryOption} from '../../Script/cart.js'; //Named Export {} With
-import { products } from '../../Script/Products_data.js';
+import { products, getProduct} from '../../Script/Products_data.js';
 import { formatCurrency } from '../Utils/money.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';//Default Export {} Without
-import {deliveryOptions} from '../../Script/deliveryOptions.js';
+import {deliveryOptions, getDeliveryOption} from '../../Script/deliveryOptions.js';
 
 
 export function renderOrderSummary(){
@@ -12,23 +12,11 @@ export function renderOrderSummary(){
   cart.forEach((cartItem) => {
     const productId = cartItem.productId;
 
-    let matchingProduct;
+    const matchingProduct = getProduct(productId);
 
-    products.forEach((product) => {
-      if(product.id === productId){
-        matchingProduct = product;
-      }
-    });
+    const deliveryOptionId = cartItem.deliveryOptionsId; //get the delivery option id from the Cart.js
 
-    const deliveryOptionId = cartItem.deliveryOptionsId;
-
-    let deliveryOption;
-
-    deliveryOptions.forEach((options) => {
-      if(options.id === deliveryOptionId){
-        deliveryOption = options;
-      }
-    }); 
+    const deliveryOption = getDeliveryOption(deliveryOptionId);
 
     const today = dayjs();
     const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
@@ -79,7 +67,7 @@ export function renderOrderSummary(){
       const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
       const dateString = deliveryDate.format('dddd, MMMM D');
 
-      const priceString = deliveryOption.pricecents === 0? 'FREE': `$${formatCurrency(deliveryOption.pricecents)} -`;
+      const priceString = deliveryOption.pricecents === 0? 'FREE': `$${formatCurrency(deliveryOption.pricecent)} -`;
 
       const isChecked = deliveryOption.id === cartItem.deliveryOptionsId;
 
