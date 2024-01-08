@@ -19,12 +19,18 @@ export function renterPaymentSummary(){
   const totalBeforeTaxCents = productPriceCents + shippingPriceCents;
   const taxCents = totalBeforeTaxCents * 0.1; //calculate 10%
   const totalCents = totalBeforeTaxCents + taxCents;
+
+  let cartQty = 0;
+
+  cart.forEach((cartItem) => {
+    cartQty += cartItem.quantity;
+  });
   
   const paymentSummaryHTML = `
     <div class="Payment_summary_title">Order Summary</div>
 
     <div class="payment_summary_row">
-      <div>Item (3):</div>
+      <div>Item (${cartQty}):</div>
       <div class="payment_item_amount">$${formatCurrency(productPriceCents)}</div>
     </div>
 

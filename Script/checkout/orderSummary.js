@@ -2,8 +2,9 @@ import {cart,removeFromCart,calculateCartQty,updateQuantity,updateDeliveryOption
 import { products, getProduct} from '../../Script/Products_data.js';
 import { formatCurrency } from '../Utils/money.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';//Default Export {} Without
-import {deliveryOptions, getDeliveryOption} from '../../Script/deliveryOptions.js';
+import {deliveryOptions, getDeliveryOption, calculateDeliveryDate} from '../../Script/deliveryOptions.js';
 import { renterPaymentSummary } from './paymentSummary.js';
+import { renderCheckoutHeader } from './checkoutHeader.js';
 
 
 export function renderOrderSummary(){
@@ -19,9 +20,7 @@ export function renderOrderSummary(){
 
     const deliveryOption = getDeliveryOption(deliveryOptionId);
 
-    const today = dayjs();
-    const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
-    const dateString = deliveryDate.format('dddd, MMMM D');
+    const dateString = calculateDeliveryDate(deliveryOption);
 
     cartSummaryHTML += `
     <div class="cart_item_div js-cart-item-div-${matchingProduct.id}">
@@ -64,9 +63,7 @@ export function renderOrderSummary(){
   function deliveryOptionsHTML(matchingProduct,cartItem){
     let html = '';
     deliveryOptions.forEach((deliveryOption) => {
-      const today = dayjs();
-      const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
-      const dateString = deliveryDate.format('dddd, MMMM D');
+      const dateString = calculateDeliveryDate(deliveryOption);
 
       const priceString = deliveryOption.pricecents === 0? 'FREE': `$${formatCurrency(deliveryOption.pricecent)} -`;
 
@@ -96,11 +93,13 @@ export function renderOrderSummary(){
       const productId = link.dataset.productId;
       removeFromCart(productId);
 
-      const container = document.querySelector(`.js-cart-item-div-${productId}`);
+      // const container = document.querySelector(`.js-cart-item-div-${productId}`);
 
-      container.remove();
+      // container.remove();
 
       updateCartQuantity();
+      renderCheckoutHeader();
+      renderOrderSummary();
       renterPaymentSummary();
     });
   });
@@ -153,6 +152,8 @@ export function renderOrderSummary(){
         qtyLabel.innerHTML = newQty;
 
         updateCartQuantity();
+        renderCheckoutHeader();
+        renderOrderSummary();
         renterPaymentSummary();
       });
     });
